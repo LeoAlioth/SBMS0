@@ -15,8 +15,9 @@ os.system("systemctl start influxdb")
 os.system("sudo apt install influxdb-client")
 os.system("influx -execute 'CREATE DATABASE SBMS'")
 
-os.system("apt-get -y install python-influxdb")
-os.system("sudo apt-get install python-serial")
+os.system("sudo apt-get install python3-pip")
+os.system("pip3 install pyserial")
+os.system("pip3 install pip install influxdb")
 
 # Install Grafana
 os.system("apt-get install -y adduser libfontconfig1")
@@ -31,9 +32,9 @@ os.system("apt install -y grafana")
 os.system("systemctl enable grafana-server")
 os.system("systemctl start grafana-server")
 
-os.system("sudo wget --no-check-certificate --content-disposition 'https://raw.githubusercontent.com/Burtond/Electrodacus/master/sbms0-SerialToInfluxDB.py' -P '/home/SBMS0/'")
+os.system("sudo wget --no-check-certificate --content-disposition 'https://raw.githubusercontent.com/LeoAlioth/SBMS0/master/sbms0-SerialToInfluxDB.py' -P '/home/SBMS0/'")
 
-os.system("sudo wget --no-check-certificate --content-disposition 'https://raw.githubusercontent.com/Burtond/Electrodacus/master/SBMS-Logger.service' -P '/etc/systemd/system/'")
+os.system("sudo wget --no-check-certificate --content-disposition 'https://raw.githubusercontent.com/LeoAlioth/SBMS0/master/SBMS-Logger.service' -P '/etc/systemd/system/'")
 
 os.system("systemctl enable SBMS-Logger.service")
 os.system("systemctl start SBMS-Logger.service")
