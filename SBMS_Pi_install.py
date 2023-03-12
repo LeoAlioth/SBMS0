@@ -6,7 +6,7 @@ os.system("apt upgrade -y")
 
 # Install & configure InfluxDB
 os.system("wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -")
-os.system("'deb https://repos.influxdata.com/debian buster stable' | sudo tee /etc/apt/sources.list.d/influxdb.list")
+os.system("'deb https://repos.influxdata.com/debian bullseye stable' | sudo tee /etc/apt/sources.list.d/influxdb.list")
 os.system("apt update")
 os.system("apt install influxdb")
 os.system("systemctl unmask influxdb")
@@ -24,8 +24,10 @@ os.system("apt-get install -y adduser libfontconfig1")
 #os.system("wget https://dl.grafana.com/oss/release/grafana_7.1.1_amd64.deb")
 #os.system("sudo dpkg -i grafana_7.1.1_amd64.deb")
 
-os.system("wget https://dl.grafana.com/oss/release/grafana_7.1.1_armhf.deb")
-os.system("dpkg -i grafana_7.1.1_armhf.deb")
+os.system("wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -")
+os.system("echo 'deb https://packages.grafana.com/oss/deb stable main' | sudo tee -a /etc/apt/sources.list.d/grafana.list")
+os.system("apt update")
+os.system("apt install -y grafana")
 os.system("systemctl enable grafana-server")
 os.system("systemctl start grafana-server")
 
