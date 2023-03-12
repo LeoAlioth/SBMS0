@@ -1,4 +1,10 @@
 # Electrodacus
 Automation code for managing electrodacus solar battery management components 
 
-Instructions can be found at https://familyburton.com/solar-battery-testing-with-electrodacus-part-2/
+To install on a raspberry pi run following commands:
+
+sudo mkdir /home/SBMS0
+cd /home/SBMS0
+sudo wget -O SBMS_Pi_install.py https://raw.githubusercontent.com/Burtond/Electrodacus/master/SBMS_Pi_install.py
+sudo python SBMS_Pi_install.py
+
